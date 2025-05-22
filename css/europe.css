@@ -1,0 +1,62 @@
+.LDC-Group {
+  background: rgb(28, 28, 33);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 28, 33, 1) 0%,
+    rgba(66, 133, 244, 1) 100%
+  );
+}
+
+.LDC-Qualif {
+  background: rgb(28, 28, 33);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 28, 33, 1) 0%,
+    rgb(179, 208, 255) 100%
+  );
+}
+
+.EL-Group {
+  background: rgb(28, 28, 33);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 28, 33, 1) 0%,
+    rgba(250, 123, 23, 1) 100%
+  );
+}
+
+.ECL-Group {
+  background: rgb(28, 28, 33);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 28, 33, 1) 0%,
+    rgba(52, 168, 83, 1) 100%
+  );
+}
+
+.ECL-Qualif {
+  background: rgb(28, 28, 33);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 28, 33, 1) 0%,
+    rgb(129, 202, 148) 100%
+  );
+}
+
+.Barrages {
+  background: rgb(28, 28, 33);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 28, 33, 1) 0%,
+    rgba(251, 188, 4, 1) 100%
+  );
+}
+
+.Relegation {
+  background: rgb(28, 28, 33);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 28, 33, 1) 0%,
+    rgba(234, 67, 53, 1) 100%
+  );
+}

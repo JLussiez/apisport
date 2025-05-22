@@ -1,0 +1,11 @@
+<?php
+
+$apiKey = '008a92b3206d4d95bef815a2c46d9420';
+
+$FL1apiUrl = 'https://api.football-data.org/v4/competitions/FL1/standings?season=2024';
+$PLapiUrl = 'https://api.football-data.org/v4/competitions/PL/standings?season=2024';
+$SAapiUrl = 'https://api.football-data.org/v4/competitions/SA/standings?season=2024';
+$PDapiUrl = 'https://api.football-data.org/v4/competitions/PD/standings?season=2024';
+$BL1apiUrl = 'https://api.football-data.org/v4/competitions/BL1/standings?season=2024';
+$DEDapiUrl = 'https://api.football-data.org/v4/competitions/DED/standings?season=2024';
+$PPLapiUrl = 'https://api.football-data.org/v4/competitions/PPL/standings?season=2024';

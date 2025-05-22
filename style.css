@@ -1,0 +1,109 @@
+* {
+  background-color: black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000;
+}
+
+th,
+td {
+  background-color: #1c1c21;
+  color: #bdc1c6;
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #313335;
+}
+
+th {
+  background-color: #1c1c21;
+  font-weight: bold;
+}
+
+tr:last-child td {
+  background-color: #1c1c21;
+}
+
+tr,
+th,
+td {
+  border-top: 1px solid black;
+}
+
+th,
+td {
+  border-left: none;
+  border-right: none;
+}
+
+tr:first-child {
+  border-top: none;
+}
+
+#standings table img {
+  background-color: transparent;
+}
+
+.pts {
+  font-weight: bold;
+}
+
+.name {
+  text-align: left;
+}
+
+h1 {
+  color: white;
+  padding-left: 2rem;
+}
+
+.L-LDC-Group {
+  background-color: rgba(66, 133, 244, 1);
+  width: 10px;
+  height: 10px;
+}
+
+.L-LDC-Qualif {
+  background-color: rgb(179, 208, 255);
+  width: 10px;
+  height: 10px;
+}
+
+.L-EL-Group {
+  background-color: rgba(250, 123, 23, 1);
+  width: 10px;
+  height: 10px;
+}
+
+.L-ECL-Qualif {
+  background-color: rgb(129, 202, 148);
+  width: 10px;
+  height: 10px;
+}
+
+.L-Barrages {
+  background-color: rgba(251, 188, 4, 1);
+  width: 10px;
+  height: 10px;
+}
+
+.L-Relegation {
+  background-color: rgba(234, 67, 53, 1);
+  width: 10px;
+  height: 10px;
+}
+
+.legende {
+  color: white;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.index-text {
+  color: white;
+}

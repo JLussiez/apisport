@@ -1,0 +1,20 @@
+meta {
+  name: Competition - Matches
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://api.football-data.org/v4/competitions/CL/matches?stage=QUARTER_FINALS
+  body: none
+  auth: none
+}
+
+query {
+  stage: QUARTER_FINALS
+  ~matchday: 1
+}
+
+headers {
+  X-Auth-Token: 008a92b3206d4d95bef815a2c46d9420
+}
