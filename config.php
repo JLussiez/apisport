@@ -1,11 +1,55 @@
 <?php
+// Configuration de l'API Football-Data
+define('API_KEY', '008a92b3206d4d95bef815a2c46d9420');
+define('API_BASE_URL', 'https://api.football-data.org/v4/competitions/');
 
-$apiKey = '008a92b3206d4d95bef815a2c46d9420';
+// Configuration des URLs des compétitions
+define('COMPETITIONS', [
+    'FL1' => [
+        'name' => 'Ligue 1',
+        'endpoint' => API_BASE_URL . 'FL1/standings',
+        'flag' => '🇫🇷'
+    ],
+    'PL' => [
+        'name' => 'Premier League',
+        'endpoint' => API_BASE_URL . 'PL/standings',
+        'flag' => '🇬🇧'
+    ],
+    'SA' => [
+        'name' => 'Serie A',
+        'endpoint' => API_BASE_URL . 'SA/standings',
+        'flag' => '🇮🇹'
+    ],
+    'PD' => [
+        'name' => 'La Liga',
+        'endpoint' => API_BASE_URL . 'PD/standings',
+        'flag' => '🇪🇸'
+    ],
+    'BL1' => [
+        'name' => 'Bundesliga',
+        'endpoint' => API_BASE_URL . 'BL1/standings',
+        'flag' => '🇩🇪'
+    ],
+    'DED' => [
+        'name' => 'Eredivisie',
+        'endpoint' => API_BASE_URL . 'DED/standings',
+        'flag' => '🇳🇱'
+    ],
+    'PPL' => [
+        'name' => 'Primeira Liga',
+        'endpoint' => API_BASE_URL . 'PPL/standings',
+        'flag' => '🇵🇹'
+    ]
+]);
 
-$FL1apiUrl = 'https://api.football-data.org/v4/competitions/FL1/standings?season=2024';
-$PLapiUrl = 'https://api.football-data.org/v4/competitions/PL/standings?season=2024';
-$SAapiUrl = 'https://api.football-data.org/v4/competitions/SA/standings?season=2024';
-$PDapiUrl = 'https://api.football-data.org/v4/competitions/PD/standings?season=2024';
-$BL1apiUrl = 'https://api.football-data.org/v4/competitions/BL1/standings?season=2024';
-$DEDapiUrl = 'https://api.football-data.org/v4/competitions/DED/standings?season=2024';
-$PPLapiUrl = 'https://api.football-data.org/v4/competitions/PPL/standings?season=2024';
+// Configuration de la saison
+define('CURRENT_SEASON', '2025');
+
+// Configuration des options de l'API
+define('API_OPTIONS', [
+    'http' => [
+        'method' => 'GET',
+        'header' => 'X-Auth-Token: ' . API_KEY
+    ]
+]);
+?> 
