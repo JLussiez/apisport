@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}{{ league_name }} - Classements Football{% endblock %}
+
+{% block navbar_content %}
+<h2 class="text-white mb-0">
+    <span class="league-flag">{{ league_flag }}</span>
+    {{ league_name }}
+</h2>
+{% endblock %}
+
+{% block content %}
+{% if data and data.standings[0].table %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="card-title mb-0">Classement</h5>
+                <small class="text-muted">
+                    Dernière mise à jour : {{ last_updated.strftime('%d/%m/%Y %H:%M') }}
+                </small>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="text-center">Pos</th>
+                            <th>Club</th>
+                            <th class="text-center">MJ</th>
+                            <th class="text-center">V</th>
+                            <th class="text-center">N</th>
+                            <th class="text-center">D</th>
+                            <th class="text-center">BP</th>
+                            <th class="text-center">BC</th>
+                            <th class="text-center">DB</th>
+                            <th class="text-center">Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for team in data.standings[0].table %}
+                        {% set position_class = '' %}
+                        {% if team.position == 1 %}
+                            {% set position_class = 'position-1' %}
+                        {% elif team.position <= 4 %}
+                            {% set position_class = 'position-2' %}
+                        {% elif team.position > (data.standings[0].table|length - 3) %}
+                            {% set position_class = 'position-relegation' %}
+                        {% endif %}
+                        <tr class="{{ position_class }}">
+                            <td class="text-center">{{ team.position }}</td>
+                            <td>
+                                <img src="{{ team.team.crest }}" alt="{{ team.team.name }}" class="team-logo">
+                                {{ team.team.name }}
+                            </td>
+                            <td class="text-center">{{ team.playedGames }}</td>
+                            <td class="text-center">{{ team.won }}</td>
+                            <td class="text-center">{{ team.draw }}</td>
+                            <td class="text-center">{{ team.lost }}</td>
+                            <td class="text-center">{{ team.goalsFor }}</td>
+                            <td class="text-center">{{ team.goalsAgainst }}</td>
+                            <td class="text-center">{{ team.goalDifference }}</td>
+                            <td class="text-center"><strong>{{ team.points }}</strong></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="alert alert-danger">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        Impossible de charger les données du classement. Veuillez réessayer plus tard.
+    </div>
+{% endif %}
+
+<div class="mt-3 mb-5">
+    <a href="{{ url_for('index') }}" class="btn btn-primary">
+        <i class="fas fa-arrow-left me-2"></i>Retour aux ligues
+    </a>
+</div>
+{% endblock %} 

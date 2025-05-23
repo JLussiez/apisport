@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    {% for code, league in competitions.items() %}
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card league-card" onclick="window.location.href='{{ url_for('standings', league_code=code) }}'">
+            <div class="card-body text-center">
+                <div class="league-logo mb-3">
+                    <img src="{{ league.logo }}" alt="{{ league.name }}" class="img-fluid" style="height: 100px; object-fit: contain;">
+                </div>
+                <div class="league-flag mb-2">{{ league.flag }}</div>
+                <h3 class="card-title">{{ league.name }}</h3>
+                <button class="btn btn-primary mt-2">
+                    <i class="fas fa-table-list me-2"></i>Voir le classement
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %} 
