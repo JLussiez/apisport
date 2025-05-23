@@ -1,14 +1,18 @@
 from flask import Flask, render_template, request, jsonify
-from flask_caching import Cache
 import requests
 from config import Config
 import logging
 from datetime import datetime
 from typing import Optional, Dict, Any
+import os
+from dotenv import load_dotenv
+from cachetools import TTLCache
 
 app = Flask(__name__)
 app.config.from_object(Config)
-cache = Cache(app)
+
+# Configuration du cache avec TTLCache (durée de vie de 5 minutes)
+cache = TTLCache(maxsize=100, ttl=300)
 
 # Configuration du logging
 logging.basicConfig(
@@ -54,7 +58,15 @@ def get_standings(league_code: str) -> Optional[Dict[str, Any]]:
         # Ajout de la date de mise à jour
         data['lastUpdated'] = datetime.now().isoformat()
         
-        cache.set(cache_key, data)
+        # Traitement de la forme pour chaque équipe
+        for team in data['standings'][0]['table']:
+            # L'API renvoie la forme comme une chaîne de caractères (ex: "WWDLL")
+            # On gère le cas où form est absent ou None
+            form_str = team.get('form') or ''
+            team['form'] = list(form_str)[-5:] if form_str else []
+        
+        cache[cache_key] = data
+        logger.info(f'Données mises à jour pour la ligue {league_code}')
         return data
     except requests.Timeout:
         logger.error(f"Timeout lors de la récupération des données pour {league_code}")
@@ -80,7 +92,7 @@ def standings(league_code):
             return render_template('error.html', 
                                 message="Impossible de charger les données du classement.")
         
-        return render_template('standings.html', 
+        return render_template('standings.html',
                              data=data,
                              league_name=league_info['name'],
                              league_flag=league_info['flag'],

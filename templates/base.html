@@ -46,6 +46,23 @@
         .position-1 { background-color: rgba(0, 255, 0, 0.1); }
         .position-2, .position-3, .position-4 { background-color: rgba(0, 200, 0, 0.05); }
         .position-relegation { background-color: rgba(255, 0, 0, 0.05); }
+        
+        /* Styles pour les indicateurs de forme */
+        .fa-circle {
+            font-size: 0.8em;
+            margin: 0 1px;
+        }
+        .text-success { color: #28a745 !important; }
+        .text-danger { color: #dc3545 !important; }
+        .text-secondary { color: #6c757d !important; }
+        
+        /* Animation au survol des indicateurs */
+        .fa-circle {
+            transition: transform 0.2s;
+        }
+        .fa-circle:hover {
+            transform: scale(1.2);
+        }
     </style>
     {% block extra_css %}{% endblock %}
 </head>

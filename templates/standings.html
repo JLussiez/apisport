@@ -33,6 +33,7 @@
                             <th class="text-center">BC</th>
                             <th class="text-center">DB</th>
                             <th class="text-center">Pts</th>
+                            <th class="text-center">5 derniers matchs</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,10 +60,43 @@
                             <td class="text-center">{{ team.goalsAgainst }}</td>
                             <td class="text-center">{{ team.goalDifference }}</td>
                             <td class="text-center"><strong>{{ team.points }}</strong></td>
+                            <td class="text-center">
+                                {% for result in team.form %}
+                                    {% if result == 'W' %}
+                                        <i class="fas fa-circle text-success" title="Victoire"></i>
+                                    {% elif result == 'D' %}
+                                        <i class="fas fa-circle text-secondary" title="Nul"></i>
+                                    {% elif result == 'L' %}
+                                        <i class="fas fa-circle text-danger" title="Défaite"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-3 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Légende</h5>
+            <div class="d-flex flex-wrap gap-3">
+                <div class="position-1 px-3 py-2 rounded">
+                    <i class="fas fa-trophy text-warning me-2"></i>Champion
+                </div>
+                <div class="position-2 px-3 py-2 rounded">
+                    <i class="fas fa-star text-primary me-2"></i>Ligue des Champions
+                </div>
+                <div class="position-relegation px-3 py-2 rounded">
+                    <i class="fas fa-arrow-down text-danger me-2"></i>Relégation
+                </div>
+                <div class="px-3 py-2 rounded border">
+                    <i class="fas fa-circle text-success me-1"></i>Victoire
+                    <i class="fas fa-circle text-secondary mx-1"></i>Nul
+                    <i class="fas fa-circle text-danger ms-1"></i>Défaite
+                </div>
             </div>
         </div>
     </div>
